@@ -16,15 +16,15 @@ class StatusTransacaoBoletoItauShopline
 		
 		switch($codStatus) {
 			case static::PAGAMENTO_EFETUADO: 						return 'Pagamento efetuado';
-			case static::SITUACAO_NAO_FINALIZADA: 					return 'SituaÁ„o de pagamento n„o finalizada (tente novamente)';
+			case static::SITUACAO_NAO_FINALIZADA: 					return 'Situa√ß√£o de pagamento n√£o finalizada (tente novamente)';
 			case static::ERRO_NO_PROCESSAMENTO: 					return 'Erro no processamento da consulta (tente novamente)';
-			case static::PAGAMENTO_NAO_LOCALIZADO: 					return 'Pagamento n„o localizado (consulta fora de prazo ou pedido n„o registrado no banco)';
+			case static::PAGAMENTO_NAO_LOCALIZADO: 					return 'Pagamento n√£o localizado (consulta fora de prazo ou pedido n√£o registrado no banco)';
 			case static::BOLETO_EMITIDO_COM_SUCESSO: 				return 'Boleto emitido com sucesso';
-			case static::PAGAMENTO_EFETUADO_AGUARDANDO_COMPENSACAO: return 'Pagamento efetuado, aguardando compensaÁ„o';
-			case static::PAGAMENTO_NAO_COMPENSADO: 					return 'Pagamento n„o compensado';
+			case static::PAGAMENTO_EFETUADO_AGUARDANDO_COMPENSACAO: return 'Pagamento efetuado, aguardando compensa√ß√£o';
+			case static::PAGAMENTO_NAO_COMPENSADO: 					return 'Pagamento n√£o compensado';
 		}
 		
-		throw new \Exception("CÛdigo de status $codStatus n„o encontrado");
+		throw new \Exception("C√≥digo de status $codStatus n√£o encontrado");
 		
 	}
 	

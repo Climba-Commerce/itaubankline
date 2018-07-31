@@ -93,16 +93,16 @@ class ItauCripto
 		}
 	}
 	
-	//Função criada para substituir o Math.random() do Java
-	//Retorna um número entre 0.0 e 0.9999999999 (equivalente ao Double do Java, mas com menor precisão)
+	//FunÃ§Ã£o criada para substituir o Math.random() do Java
+	//Retorna um nÃºmero entre 0.0 e 0.9999999999 (equivalente ao Double do Java, mas com menor precisÃ£o)
 	private function JavaRandom() {
 		return rand(0, 999999999) / 1000000000;
 	}
 	
-	//Retira as letras acentuadas e substitui pelas não acentuadas
+	//Retira as letras acentuadas e substitui pelas nÃ£o acentuadas
 	private function TiraAcento($string) {
 		
-		return preg_replace("/[^a-zA-Z0-9_.]/", " ", strtr($string, "áàãâéêíóôõúüçÁÀÃÂÉÊÍÓÔÕÚÜÇ", "aaaaeeiooouucAAAAEEIOOOUUC"));
+		return preg_replace("/[^a-zA-Z0-9_.]/", " ", strtr($string, "Ã¡Ã Ã£Ã¢Ã©ÃªÃ­Ã³Ã´ÃµÃºÃ¼Ã§ÃÃ€ÃƒÃ‚Ã‰ÃŠÃÃ“Ã”Ã•ÃšÃœÃ‡", "aaaaeeiooouucAAAAEEIOOOUUC"));
 		
 	}
 	
@@ -145,22 +145,22 @@ class ItauCripto
 	}
 	
 	/**
-	  $pedido // Identificação do pedido - máximo de 8 dígitos (12345678) - Obrigatório  
-	  $valor // Valor do pedido - máximo de 8 dígitos + vírgula + 2 dígitos - 99999999,99 - Obrigatório  
-	  $observacao // Observações - máximo de 40 caracteres  
-	  $nomeSacado // Nome do sacado - máximo de 30 caracteres  
-	  $codigoInscricao // Código de Inscrição: 01->CPF, 02->CNPJ  
-	  $numeroInscricao // Número de Inscrição: CPF ou CNPJ - até 14 caracteres  
-	  $enderecoSacado // Endereco do Sacado - máximo de 40 caracteres  
-	  $bairroSacado // Bairro do Sacado - máximo de 15 caracteres  
-	  $cepSacado // Cep do Sacado - máximo de 8 dígitos  
-	  $cidadeSacado // Cidade do sacado - máximo 15 caracteres  
+	  $pedido // IdentificaÃ§Ã£o do pedido - mÃ¡ximo de 8 dÃ­gitos (12345678) - ObrigatÃ³rio  
+	  $valor // Valor do pedido - mÃ¡ximo de 8 dÃ­gitos + vÃ­rgula + 2 dÃ­gitos - 99999999,99 - ObrigatÃ³rio  
+	  $observacao // ObservaÃ§Ãµes - mÃ¡ximo de 40 caracteres  
+	  $nomeSacado // Nome do sacado - mÃ¡ximo de 30 caracteres  
+	  $codigoInscricao // CÃ³digo de InscriÃ§Ã£o: 01->CPF, 02->CNPJ  
+	  $numeroInscricao // NÃºmero de InscriÃ§Ã£o: CPF ou CNPJ - atÃ© 14 caracteres  
+	  $enderecoSacado // Endereco do Sacado - mÃ¡ximo de 40 caracteres  
+	  $bairroSacado // Bairro do Sacado - mÃ¡ximo de 15 caracteres  
+	  $cepSacado // Cep do Sacado - mÃ¡ximo de 8 dÃ­gitos  
+	  $cidadeSacado // Cidade do sacado - mÃ¡ximo 15 caracteres  
 	  $estadoSacado // Estado do Sacado - 2 caracteres  
-	  $dataVencimento // Vencimento do título - 8 dígitos - ddmmaaaa  
-	  $urlRetorna // URL do retorno - máximo de 60 caracteres  
-	  $obsAdicional1 // ObsAdicional1 - máximo de 60 caracteres  
-	  $obsAdicional2 // ObsAdicional2 - máximo de 60 caracteres  
-	  $obsAdicional3 // ObsAdicional3 - máximo de 60 caracteres
+	  $dataVencimento // Vencimento do tÃ­tulo - 8 dÃ­gitos - ddmmaaaa  
+	  $urlRetorna // URL do retorno - mÃ¡ximo de 60 caracteres  
+	  $obsAdicional1 // ObsAdicional1 - mÃ¡ximo de 60 caracteres  
+	  $obsAdicional2 // ObsAdicional2 - mÃ¡ximo de 60 caracteres  
+	  $obsAdicional3 // ObsAdicional3 - mÃ¡ximo de 60 caracteres
 	  
 	  $dados = $cripto->geraDados($codEmp,$pedido,$valor,$observacao,$chave,$nomeSacado,$codigoInscricao,$numeroInscricao,$enderecoSacado,$bairroSacado,$cepSacado,$cidadeSacado,$estadoSacado,$dataVencimento,$urlRetorna,$obsAd1,$obsAd2,$obsAd3);
 	 */
@@ -170,25 +170,25 @@ class ItauCripto
 		$paramString5 = strtoupper($paramString5);
 
 		if (strlen($paramString1) != $this->TAM_COD_EMP) {
-			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posições.");
+			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posiÃ§Ãµes.");
 		}
 
 		if (strlen($paramString5) != $this->TAM_CHAVE) {
-			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posições.");
+			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posiÃ§Ãµes.");
 		}
 
 		if ((strlen($paramString2) < 1) || (strlen($paramString2) > 8)) {
-			throw new \Exception("Erro: número do pedido inválido.");
+			throw new \Exception("Erro: nÃºmero do pedido invÃ¡lido.");
 		}
 
 		if (is_numeric($paramString2)) {
 			$paramString2 = $this->PreencheZero($paramString2, 8);
 		} else {
-			throw new \Exception("Erro: numero do pedido não é numérico.");
+			throw new \Exception("Erro: numero do pedido nÃ£o Ã© numÃ©rico.");
 		}
 
 		if ((strlen($paramString3) < 1) || (strlen($paramString3) > 11)) {
-			throw new \Exception("Erro: valor da compra inválido.");
+			throw new \Exception("Erro: valor da compra invÃ¡lido.");
 		}
 
 		$i = strpos($paramString3, ',');
@@ -197,21 +197,21 @@ class ItauCripto
 			$str3 = substr($paramString3, ($i + 1));
 
 			if (!is_numeric($str3)) {
-				throw new \Exception("Erro: valor decimal não é numérico.");
+				throw new \Exception("Erro: valor decimal nÃ£o Ã© numÃ©rico.");
 			}
 
 			if (strlen($str3) != 2) {
-				throw new \Exception("Erro: valor decimal da compra deve possuir 2 posições após a virgula.");
+				throw new \Exception("Erro: valor decimal da compra deve possuir 2 posiÃ§Ãµes apÃ³s a virgula.");
 			}
 
 			$paramString3 = substr($paramString3, 0, strlen($paramString3) - 3) . $str3;
 		} else {
 			if (!is_numeric($paramString3)) {
-				throw new \Exception("Erro: valor da compra não é numérico.");
+				throw new \Exception("Erro: valor da compra nÃ£o Ã© numÃ©rico.");
 			}
 
 			if (strlen($paramString3) > 8) {
-				throw new \Exception("Erro: valor da compra deve possuir no máximo 8 posições antes da virgula.");
+				throw new \Exception("Erro: valor da compra deve possuir no mÃ¡ximo 8 posiÃ§Ãµes antes da virgula.");
 			}
 
 			$paramString3 = $paramString3 . "00";
@@ -222,31 +222,31 @@ class ItauCripto
 		$paramString7 = trim($paramString7);
 
 		if (($paramString7 != "02") && ($paramString7 != "01") && ($paramString7 != "")) {
-			throw new \Exception("Erro: código de inscrição inválido.");
+			throw new \Exception("Erro: cÃ³digo de inscriÃ§Ã£o invÃ¡lido.");
 		}
 
 		if (($paramString8 != "") && (!is_numeric($paramString8)) && (strlen($paramString8) > 14)) {
-			throw new \Exception("Erro: número de inscrição inválido.");
+			throw new \Exception("Erro: nÃºmero de inscriÃ§Ã£o invÃ¡lido.");
 		}
 
 		if (($paramString11 != "") && ((!is_numeric($paramString11)) || (strlen($paramString11) != 8))) {
-			throw new \Exception("Erro: cep inválido.");
+			throw new \Exception("Erro: cep invÃ¡lido.");
 		}
 
 		if (($paramString14 != "") && ((!is_numeric($paramString14)) || (strlen($paramString14) != 8))) {
-			throw new \Exception("Erro: data de vencimento inválida.");
+			throw new \Exception("Erro: data de vencimento invÃ¡lida.");
 		}
 
 		if (strlen($paramString16) > 60) {
-			throw new \Exception("Erro: observação adicional 1 inválida.");
+			throw new \Exception("Erro: observaÃ§Ã£o adicional 1 invÃ¡lida.");
 		}
 
 		if (strlen($paramString17) > 60) {
-			throw new \Exception("Erro: observação adicional 2 inválida.");
+			throw new \Exception("Erro: observaÃ§Ã£o adicional 2 invÃ¡lida.");
 		}
 
 		if (strlen($paramString18) > 60) {
-			throw new \Exception("Erro: observação adicional 3 inválida.");
+			throw new \Exception("Erro: observaÃ§Ã£o adicional 3 invÃ¡lida.");
 		}
 
 		//Retira os acentos
@@ -284,17 +284,17 @@ class ItauCripto
 	public function geraCripto($paramString1, $paramString2, $paramString3) {
 		
 		if (strlen($paramString1) != $this->TAM_COD_EMP) {
-			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posições.");
+			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posiÃ§Ãµes.");
 		}
 
 		if (strlen($paramString3) != $this->TAM_CHAVE) {
-			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posições.");
+			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posiÃ§Ãµes.");
 		}
 
 		$paramString2 = trim($paramString2);
 
 		if ($paramString2 == "") {
-			throw new \Exception("Erro: código do sacado inválido.");
+			throw new \Exception("Erro: cÃ³digo do sacado invÃ¡lido.");
 		}
 
 		$str1 = $this->Algoritmo($paramString2, $paramString3);
@@ -306,34 +306,34 @@ class ItauCripto
 
 	/**
 	 * 
-	 * @param string $paramString1 Código da Empresa
-	 * @param string $paramString2 Número do pedido
-	 * @param string $paramString3 Método de consulta, 0 para exibir html e 1 para exibir xml
+	 * @param string $paramString1 CÃ³digo da Empresa
+	 * @param string $paramString2 NÃºmero do pedido
+	 * @param string $paramString3 MÃ©todo de consulta, 0 para exibir html e 1 para exibir xml
 	 * @param string $paramString4 Chave de criptografia
 	 * @throws \Exception
 	 */
 	public function geraConsulta($paramString1, $paramString2, $paramString3, $paramString4) {
 		
 		if (strlen($paramString1) != $this->TAM_COD_EMP) {
-			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posições.");
+			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posiÃ§Ãµes.");
 		}
 
 		if (strlen($paramString4) != $this->TAM_CHAVE) {
-			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posições.");
+			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posiÃ§Ãµes.");
 		}
 
 		if ((strlen($paramString2) < 1) || (strlen($paramString2) > 8)) {
-			throw new \Exception("Erro: número do pedido inválido.");
+			throw new \Exception("Erro: nÃºmero do pedido invÃ¡lido.");
 		}
 
 		if (is_numeric($paramString2)) {
 			$paramString2 = $this->PreencheZero($paramString2, 8);
 		} else {
-			throw new \Exception("Erro: numero do pedido não é numérico.");
+			throw new \Exception("Erro: numero do pedido nÃ£o Ã© numÃ©rico.");
 		}
 
 		if (($paramString3 != "0") && ($paramString3 != "1")) {
-			throw new \Exception("Erro: formato de consulta inválido.");
+			throw new \Exception("Erro: formato de consulta invÃ¡lido.");
 		}
 
 		$str1 = $this->Algoritmo($paramString2 . $paramString3, $paramString4);
@@ -379,11 +379,11 @@ class ItauCripto
 		$paramString3 = strtoupper($paramString3);
 
 		if (strlen($paramString1) != $this->TAM_COD_EMP) {
-			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posições.");
+			throw new \Exception("Erro: tamanho do codigo da empresa diferente de 26 posiÃ§Ãµes.");
 		}
 
 		if (strlen($paramString3) != $this->TAM_CHAVE) {
-			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posições.");
+			throw new \Exception("Erro: tamanho da chave da chave diferente de 16 posiÃ§Ãµes.");
 		}
 
 		if (strlen($paramString2) < 1) {
