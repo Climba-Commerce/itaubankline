@@ -358,9 +358,6 @@ class ItauCripto
 		$paramString16 = $this->TiraAcento($paramString16);
 		$paramString17 = $this->TiraAcento($paramString17);
 		$paramString18 = $this->TiraAcento($paramString18);
-		
-		ddd($paramString4,$paramString6, $paramString9, $paramString10, $paramString12, $paramString16, $paramString17, $paramString18);
-		
 		$paramString4 = $this->PreencheBranco($paramString4, 40);
 		$paramString6 = $this->PreencheBranco($paramString6, 30);
 		$paramString7 = $this->PreencheBranco($paramString7, 2);
