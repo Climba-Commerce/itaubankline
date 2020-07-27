@@ -11,6 +11,7 @@ class StatusTransacaoBoletoItauShopline
 	const BOLETO_EMITIDO_COM_SUCESSO 					= '04';
 	const PAGAMENTO_EFETUADO_AGUARDANDO_COMPENSACAO 	= '05';
 	const PAGAMENTO_NAO_COMPENSADO 						= '06';
+	const PAGAMENTO_PARCIAL     						= '07';
 	
 	public static function getDescricao($codStatus){
 		
@@ -22,6 +23,7 @@ class StatusTransacaoBoletoItauShopline
 			case static::BOLETO_EMITIDO_COM_SUCESSO: 				return 'Boleto emitido com sucesso';
 			case static::PAGAMENTO_EFETUADO_AGUARDANDO_COMPENSACAO: return 'Pagamento efetuado, aguardando compensação';
 			case static::PAGAMENTO_NAO_COMPENSADO: 					return 'Pagamento não compensado';
+			case static::PAGAMENTO_PARCIAL: 					    return 'Pagamento parcial';
 		}
 		
 		throw new \Exception("Código de status $codStatus não encontrado");
