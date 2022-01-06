@@ -1,11 +1,6 @@
 <?php
 namespace ItauBankline;
 
-/**
- * 
- * @author Dilnei
- *
- */
 class ItauCripto
 {
 	

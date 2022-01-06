@@ -16,14 +16,14 @@ class StatusTransacaoBoletoItauShopline
 	public static function getDescricao($codStatus){
 		
 		switch($codStatus) {
-			case static::PAGAMENTO_EFETUADO: 						return 'Pagamento efetuado';
-			case static::SITUACAO_NAO_FINALIZADA: 					return 'Situação de pagamento não finalizada (tente novamente)';
-			case static::ERRO_NO_PROCESSAMENTO: 					return 'Erro no processamento da consulta (tente novamente)';
-			case static::PAGAMENTO_NAO_LOCALIZADO: 					return 'Pagamento não localizado (consulta fora de prazo ou pedido não registrado no banco)';
-			case static::BOLETO_EMITIDO_COM_SUCESSO: 				return 'Boleto emitido com sucesso';
-			case static::PAGAMENTO_EFETUADO_AGUARDANDO_COMPENSACAO: return 'Pagamento efetuado, aguardando compensação';
-			case static::PAGAMENTO_NAO_COMPENSADO: 					return 'Pagamento não compensado';
-			case static::PAGAMENTO_PARCIAL: 					    return 'Pagamento parcial';
+			case self::PAGAMENTO_EFETUADO: return 'Pagamento efetuado';
+			case self::SITUACAO_NAO_FINALIZADA: return 'Situação de pagamento não finalizada (tente novamente)';
+			case self::ERRO_NO_PROCESSAMENTO: return 'Erro no processamento da consulta (tente novamente)';
+			case self::PAGAMENTO_NAO_LOCALIZADO: return 'Pagamento não localizado (consulta fora de prazo ou pedido não registrado no banco)';
+			case self::BOLETO_EMITIDO_COM_SUCESSO: return 'Boleto emitido com sucesso';
+			case self::PAGAMENTO_EFETUADO_AGUARDANDO_COMPENSACAO: return 'Pagamento efetuado, aguardando compensação';
+			case self::PAGAMENTO_NAO_COMPENSADO: return 'Pagamento não compensado';
+			case self::PAGAMENTO_PARCIAL: return 'Pagamento parcial';
 		}
 		
 		throw new \Exception("Código de status $codStatus não encontrado");

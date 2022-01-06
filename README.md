@@ -1,39 +1,39 @@
 PHP ITAUCRIPTO Itau Bankline
 ==============
 
-Vers„o em PHP com a classe ItauCripto, originalmente escrita em Java baseado em gabrielrcouto/php-itaucripto.
+Vers√£o em PHP com a classe ItauCripto, originalmente escrita em Java baseado em gabrielrcouto/php-itaucripto.
 
-Implementamos na mesma biblioteca as chamadas Webservice para geraÁ„o de transaÁ„o no Itau Bankline e tambÈm consultas.
+Implementamos na mesma biblioteca as chamadas Webservice para gera√ß√£o de transa√ß√£o no Itau Bankline e tamb√©m consultas.
 
-Nossa biblioteca foi desenvolvida inicialmente para utilizar apenas o Boleto banc·rio, mas nada impede de usar as outras formas de pagamento.
+Nossa biblioteca foi desenvolvida inicialmente para utilizar apenas o Boleto banc√°rio, mas nada impede de usar as outras formas de pagamento.
 
-Caso queira contribuir com as outras formas de pagamento, ser· muito bem vindo tambÈm.
+Caso queira contribuir com as outras formas de pagamento, ser√° muito bem vindo tamb√©m.
 
-Como a classe ItauCripto em Java foi descompilada, alguns nomes se tornaram nomes genÈricos (ex: $paramString1, $paramString2).
+Como a classe ItauCripto em Java foi descompilada, alguns nomes se tornaram nomes gen√©ricos (ex: $paramString1, $paramString2).
 
-InstalaÁ„o
+Instala√ß√£o
 ==============
 ```php
-composer require dilneiss/itaubankline
+composer require idealizetecnologia/itaubankline
 ```
 
-Como usar o Webservice utilizando a prÛpria Biblioteca
+Como usar o Webservice utilizando a pr√≥pria Biblioteca
 ==============
-Para gerar uma url para o cliente efetuar o pagamento, utilize o seguinte cÛdigo
+Para gerar uma url para o cliente efetuar o pagamento, utilize o seguinte c√≥digo
 ```php
 	try {
 			
-		  //Coloque o cÛdigo da empresa em MAI⁄SCULO
+		  //Coloque o c√≥digo da empresa em MAI√öSCULO
 		  $codEmp = "J1234567890123456789012345";
-		  //Coloque a chave de criptografia em MAI⁄SCULO
+		  //Coloque a chave de criptografia em MAI√öSCULO
 		  $chave = "ABCD123456ABCD12";
 		  
-		  //Preencha as vari·veis abaixo com os dados do cliente e da cobranÁa
-		  //Abaixo È sÛ um exemplo!
+		  //Preencha as vari√°veis abaixo com os dados do cliente e da cobran√ßa
+		  //Abaixo √© s√≥ um exemplo!
 		  $pedido = "1234";
 		  $valor = "150,00";
 		  $observacao = 1;
-		  $nomeSacado = "Dilnei Soethe Spancerski";
+		  $nomeSacado = "Fulano da Silva";
 		  $codigoInscricao = "";
 		  $numeroInscricao = "";
 		  $enderecoSacado = "";
@@ -43,9 +43,9 @@ Para gerar uma url para o cliente efetuar o pagamento, utilize o seguinte cÛdigo
 		  $estadoSacado = "";
 		  $dataVencimento = "";
 		  $urlRetorna = "";
-		  $obsAd1 = "ObservaÁıes linha 1";
-		  $obsAd2 = "ObservaÁıes linha 2";
-		  $obsAd3 = "ObservaÁıes linha 3";
+		  $obsAd1 = "Observa√ß√µes linha 1";
+		  $obsAd2 = "Observa√ß√µes linha 2";
+		  $obsAd3 = "Observa√ß√µes linha 3";
 		  
 		  $itauCripto = new ItauCripto();
 		  
@@ -55,20 +55,20 @@ Para gerar uma url para o cliente efetuar o pagamento, utilize o seguinte cÛdigo
 													      
 		  $itauService = new ItauBanklineService();
 		  
-		  $urlBoleto = $itauService->generateUrlBoletoItauBankline($dados_criptografados); //Utilize essa url para ir direto ao boleto banc·rio
+		  $urlBoleto = $itauService->generateUrlBoletoItauBankline($dados_criptografados); //Utilize essa url para ir direto ao boleto banc√°rio
 		  
 		  $urlItauBankline = $itauService->generateUrlBoletoItauBankline($dados_criptografados); //Utilize essa url para ir a tela do Itau Bankline e o cliente escolher a forma de pagamento
 		  
-		  //Aqui faÁa seu redirecionamento para a url gerada conforme desejado
+		  //Aqui fa√ßa seu redirecionamento para a url gerada conforme desejado
 			
 		} catch (Exception $e) {
 			exit($e->getMessage());
 		}
 ```
 
-Para efetuar uma consulta no Itau Bankline e retornar o status da transaÁ„o, utilize o seguinte cÛdigo
+Para efetuar uma consulta no Itau Bankline e retornar o status da transa√ß√£o, utilize o seguinte c√≥digo
 ```php
-	$metodoResultado = 1; //0 Para exibir a consulta em html legÌvel e 1 para exibir a consulta em xml
+	$metodoResultado = 1; //0 Para exibir a consulta em html leg√≠vel e 1 para exibir a consulta em xml
 	
 	$itauCripto = new ItauCripto();
 	$dadosCriptografados = $itauCripto->geraConsulta($codEmp , $pedido , $metodoResultado , $chave);
@@ -90,30 +90,25 @@ Campos
 ==============
 
 ```php
-  $pedido // IdentificaÁ„o do pedido - m·ximo de 8 dÌgitos (12345678) - ObrigatÛrio  
-  $valor // Valor do pedido - m·ximo de 8 dÌgitos + vÌrgula + 2 dÌgitos - 99999999,99 - ObrigatÛrio  
-  $observacao // ObservaÁıes - m·ximo de 40 caracteres  
-  $nomeSacado // Nome do sacado - m·ximo de 30 caracteres  
-  $codigoInscricao // CÛdigo de InscriÁ„o: 01->CPF, 02->CNPJ  
-  $numeroInscricao // N˙mero de InscriÁ„o: CPF ou CNPJ - atÈ 14 caracteres  
-  $enderecoSacado // Endereco do Sacado - m·ximo de 40 caracteres  
-  $bairroSacado // Bairro do Sacado - m·ximo de 15 caracteres  
-  $cepSacado // Cep do Sacado - m·ximo de 8 dÌgitos  
-  $cidadeSacado // Cidade do sacado - m·ximo 15 caracteres  
+  $pedido // Identifica√ß√£o do pedido - m√°ximo de 8 d√≠gitos (12345678) - Obrigat√≥rio  
+  $valor // Valor do pedido - m√°ximo de 8 d√≠gitos + v√≠rgula + 2 d√≠gitos - 99999999,99 - Obrigat√≥rio  
+  $observacao // Observa√ß√µes - m√°ximo de 40 caracteres  
+  $nomeSacado // Nome do sacado - m√°ximo de 30 caracteres  
+  $codigoInscricao // c√≥digo de Inscri√ß√£o: 01->CPF, 02->CNPJ  
+  $numeroInscricao // N√∫mero de Inscri√ß√£o: CPF ou CNPJ - at√© 14 caracteres  
+  $enderecoSacado // Endereco do Sacado - m√°ximo de 40 caracteres  
+  $bairroSacado // Bairro do Sacado - m√°ximo de 15 caracteres  
+  $cepSacado // Cep do Sacado - m√°ximo de 8 d√≠gitos  
+  $cidadeSacado // Cidade do sacado - m√°ximo 15 caracteres  
   $estadoSacado // Estado do Sacado - 2 caracteres  
-  $dataVencimento // Vencimento do tÌtulo - 8 dÌgitos - ddmmaaaa  
-  $urlRetorna // URL do retorno - m·ximo de 60 caracteres  
-  $obsAdicional1 // ObsAdicional1 - m·ximo de 60 caracteres  
-  $obsAdicional2 // ObsAdicional2 - m·ximo de 60 caracteres  
-  $obsAdicional3 // ObsAdicional3 - m·ximo de 60 caracteres
+  $dataVencimento // Vencimento do t√≠tulo - 8 d√≠gitos - ddmmaaaa  
+  $urlRetorna // URL do retorno - m√°ximo de 60 caracteres  
+  $obsAdicional1 // ObsAdicional1 - m√°ximo de 60 caracteres  
+  $obsAdicional2 // ObsAdicional2 - m√°ximo de 60 caracteres  
+  $obsAdicional3 // ObsAdicional3 - m√°ximo de 60 caracteres
 ```
 
-Author
-==============
-
-[@dilneiss88](http://twitter.com/dilneiss88)
-
-LicenÁa
+Licen√ßa
 ==============
 
 [MIT License](http://zenorocha.mit-license.org/)
