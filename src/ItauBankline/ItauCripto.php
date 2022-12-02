@@ -1,6 +1,8 @@
 <?php
 namespace ItauBankline;
 
+use ItauBankline\Exception\QuantityCharactersInvalidException;
+
 /**
  * 
  * @author Dilnei
@@ -338,15 +340,15 @@ class ItauCripto
 		}
 
 		if (strlen($paramString16) > 60) {
-			throw new \Exception("Erro: observação adicional 1 inválida.");
+			throw new QuantityCharactersInvalidException("Erro: campo instruções de pagamento - linha 1 ultrapassou o limite de caracteres. Diminuir para menos de 60 caracteres.");
 		}
 
 		if (strlen($paramString17) > 60) {
-			throw new \Exception("Erro: observação adicional 2 inválida.");
+			throw new QuantityCharactersInvalidException("Erro: campo instruções de pagamento - Linha 2 ultrapassou o limite de caracteres. Diminuir para menos de 60 caracteres.");
 		}
 
 		if (strlen($paramString18) > 60) {
-			throw new \Exception("Erro: observação adicional 3 inválida.");
+			throw new QuantityCharactersInvalidException("Erro: campo instruções de pagamento - linha 3 ultrapassou o limite de caracteres. Diminuir para menos de 60 caracteres.");
 		}
 
 		//Retira os acentos
