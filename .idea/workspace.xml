@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="741e968c-c714-4c4d-836a-0d34f1cccb71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ItauBankline/Exception/QuantityCharactersInvalidException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ItauBankline/ItauCripto.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ItauBankline/ItauCripto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1670001673135</updated>
       <workItem from="1670001674462" duration="2266000" />
-      <workItem from="1670005392230" duration="254000" />
+      <workItem from="1670005392230" duration="588000" />
     </task>
     <servers />
   </component>
